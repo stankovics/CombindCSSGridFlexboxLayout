@@ -1,0 +1,214 @@
+@import url('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #eee;
+    color: #434344;
+    font-family: "Montserrat", sens-serif;
+    font-size: 400;
+}
+/*SETUP GRID CONTAINER WITH 3 COLUMNS*/
+.container{
+    display: grid;
+    grid-template-columns: 0.4fr 0.3fr 0.3fr;
+    grid-gap: 15px 10px;
+    grid-template-areas:
+    "header header  header "
+    "pic description description"
+    "recentpost post post"
+    "gallery gallery relatedposts"
+    "footer footer footer";
+    max-width: 1250px;
+    max-height: fit-content;
+    margin: 0 auto;
+    padding: 0 60px;
+    background-color: #fff;
+
+}
+/*HEADER*/
+header{
+    /*grid-column:1/-1;
+    grid-row: 1/2;*/
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-bottom: 2px solid #b0e0ea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area:header;
+}
+/*LOGO*/
+.logo a i{
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: #50c6db;
+    text-decoration: none;
+
+}
+/*MENU*/
+.menu{
+    display: flex;
+    list-style: none;
+}
+.menu li{
+    margin-right: 15px;
+}
+.menu li a{
+    text-decoration: none;
+    color: #9f9c9c;
+}
+.menu li a:hover{
+    color: #50c6db;
+}
+button{  /*header green button*/
+    padding:8px 25px;
+    border-radius: 25px;
+    color: white;
+    background-color:#51bb7b;
+    border: none;
+    font-weight:600;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(144, 58%, 19%);
+}
+.pic{ /*single picture in post*/
+   /* grid-column: 1/2;
+    grid-row: 2/3; */
+    background-image: url("https://i.imgur.com/BLy7Wnj.jpg");
+    background-color: #d5c9e2; 
+    min-height: 300px;
+    grid-area:pic;
+}
+/*descripton*/
+.description{
+   /* grid-row:2/4;
+    grid-column:2/4;*/
+    grid-area:description;
+}
+.description-heading{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #50c6db;
+}
+.description p{
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+/*recent posts*/
+.recent-posts{
+   /* grid-row:3/5;
+    grid-column:1/2;*/
+    grid-area:recentpost;
+}
+.recent-posts h3{
+    margin-top: 0.75rem;
+}
+.recent-posts ul{
+    list-style: none;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+}
+.recent-posts ul li{
+    padding: .25rem 0;
+}
+.recent-posts ul li a{
+    text-decoration: none;
+    color: black;
+}
+.recent-posts ul li a:hover{
+    color: #50c6db;
+}
+/*posts*/
+.posts{
+   /* grid-column:2/4;
+    grid-row:3/5;*/
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+    grid-area:post;
+}
+.content-block{
+    margin-right: 1rem;
+}
+.content-block h3{
+    margin-bottom: 1rem;
+}
+.content-block p{
+    padding-bottom: 1rem;
+}
+/*gallery*/
+.pic-gallery{
+   /* grid-column:1/3;
+    grid-row:5/6;*/
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 0.4rem;
+    grid-area:gallery;
+}
+.pic-gallery img{
+    max-width: 100%;
+}
+/*related posts*/
+.related-posts{
+  /*  grid-row:5/6;
+    grid-column: 3/4;*/
+    padding: 0 2rem;
+    grid-area:relatedposts;
+}
+.related-posts h4{
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ececec;
+}
+.related-posts ul{
+    list-style: none;
+    padding-top:0.5rem;
+}
+.related-posts ul li{
+    padding-bottom: 0.3rem;
+}
+.related-posts ul li a{
+    text-decoration: none;
+    color: black;
+}
+.related-posts ul li a:hover{
+    color:#50c6db;
+}
+/*footer*/
+footer{
+  /*  grid-row:6/7;
+    grid-column:1/-1;*/
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #9f9c9c;
+    grid-area:footer;
+}
+footer p{
+    color: #434344;
+    font-size: 12px;
+    padding: 10px;
+}
+/*media queries */
+@media (max-width: 700px) {
+    .container{
+        grid-template-areas: 
+            "header"
+            "pic"
+            "description"
+            "recentpost"
+            "post"
+            "gallery"
+            "relatedposts"
+            "footer";
+    }
+ }
